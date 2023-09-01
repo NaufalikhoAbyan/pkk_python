@@ -6,7 +6,7 @@ while True:
     print("---------------------")
     
     operasi = input("Silahkan masukan operasi matematika yang ingin dilakukan: ")
-    noBitches = False
+    noBitches = True
     hasil = 0
     for i in operasi.split():
         if(i == "+"):
