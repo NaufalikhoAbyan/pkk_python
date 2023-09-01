@@ -6,15 +6,20 @@ while True:
     print("---------------------")
     
     operasi = input("Silahkan masukan operasi matematika yang ingin dilakukan: ")
-    noBitches = True
-    hasil = 0
-    me = 2
+    tambah = True
+    hasil = None
     for i in operasi.split():
         if(i == "+"):
-            pass
+            tambah = True
         elif(i == "-"):
-            pass
-        elif(i.find('!')):
-            print(math.factorial(int(i.strip('!'))))
+            tambah = False
+        # elif(i.find('!')):
+        #     print(math.factorial(int(i.strip('!'))))
         else:
-            hasil += int(i)
+            if(hasil == None):
+                hasil = int(i)
+            elif(tambah):
+                hasil += int(i)
+            else:
+                hasil -= int(i)
+    print(hasil)
