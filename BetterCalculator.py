@@ -7,6 +7,7 @@ while True:
     
     operasi = input("Silahkan masukan operasi matematika yang ingin dilakukan: ")
     hasil = 0
+    me = None
     for i in operasi.split():
         if(i == "+"):
             pass
