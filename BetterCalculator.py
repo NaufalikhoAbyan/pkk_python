@@ -8,7 +8,7 @@ while True:
     operasi = input("Silahkan masukan operasi matematika yang ingin dilakukan: ")
     noBitches = True
     hasil = 0
-    me = None
+    me = 2
     for i in operasi.split():
         if(i == "+"):
             pass
