@@ -1,25 +1,48 @@
 import math
 
 while True:
+    border = "-" * 50
+
+    print(border)
     print("KALKULATOR")
-    print("Kakulator sederhana yang dapat melakukan operasi penjumlahan, pengurangan, dan faktorial")
-    print("---------------------")
+    print("Kalkulator sederhana yang dapat melakukan operasi penjumlahan, pengurangan, dan faktorial")
+    print(border)
     
-    operasi = input("Silahkan masukan operasi matematika yang ingin dilakukan: ")
+    operasi = input("Silahkan masukkan operasi matematika yang ingin dilakukan: ")
     tambah = True
     hasil = None
+    faktorial = None
+
     for i in operasi.split():
-        if(i == "+"):
+        if i == "+":
             tambah = True
-        elif(i == "-"):
+        elif i == "-":
             tambah = False
-        # elif(i.find('!')):
-        #     print(math.factorial(int(i.strip('!'))))
         else:
-            if(hasil == None):
-                hasil = int(i)
-            elif(tambah):
-                hasil += int(i)
+            if i.startswith('!'):
+                faktorial = int(i[1:])
+            elif i.endswith('!'):
+                faktorial = int(i[:-1])
             else:
-                hasil -= int(i)
-    print(hasil)
+                faktorial = None
+
+            if faktorial is not None:
+                faktorial_hasil = math.factorial(faktorial)
+                if hasil is None:
+                    hasil = faktorial_hasil
+                elif tambah:
+                    hasil += faktorial_hasil
+                else:
+                    hasil -= faktorial_hasil
+            else:
+                if hasil is None:
+                    hasil = int(i)
+                elif tambah:
+                    hasil += int(i)
+                else:
+                    hasil -= int(i)
+
+    print("Hasil:", hasil)
+
+# elif(i.find('!')):
+# print(math.factorial(int(i.strip('!'))))
